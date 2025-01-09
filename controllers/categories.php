@@ -1,12 +1,5 @@
 <?php
 
-require "functions.php";
-require "Database.php";
-
-$config = require("config.php");
-
-$db = new Database($config["database"]);
-
 $sql = "SELECT * FROM categories";
 $params = [];
 if (isset($_GET["search_query"]) && $_GET["search_query"] != "") {
@@ -17,4 +10,5 @@ if (isset($_GET["search_query"]) && $_GET["search_query"] != "") {
 
 $categories = $db->query($sql, $params)->fetchAll();
 
+$pageTitle = "Categories";
 require "views/categories.view.php";
