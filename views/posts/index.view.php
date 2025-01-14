@@ -1,5 +1,5 @@
-<?php require "components/header.php" ?>
-<?php require "components/navbar.php" ?>
+<?php require "views/components/header.php" ?>
+<?php require "views/components/navbar.php" ?>
     <form>
         <input name='search_query' value=<?= $_GET["search_query"] ?? ""?>>
         <button>Meklē</button>
@@ -11,8 +11,8 @@
 
     <ul>
         <?php foreach ($posts as $blogs) { ?>
-            <li><?= $blogs['content'] ?></li>
+            <li><a href="show?id=<?= $blogs["id"] ?>"> <?= $blogs['content'] ?></a> </li>
         <?php } ?>
     </ul>
 
-<?php require "components/footer.php" ?>
+<?php require "views/components/footer.php" ?>
