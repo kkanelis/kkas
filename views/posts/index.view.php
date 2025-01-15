@@ -11,7 +11,7 @@
 
     <ul>
         <?php foreach ($posts as $blogs) { ?>
-            <li><a href="show?id=<?= $blogs["id"] ?>"> <?= $blogs['content'] ?></a> </li>
+            <li><a href="show?id=<?= $blogs["id"] ?>"> <?= htmlspecialchars($blogs['content']) ?></a> </li>
         <?php } ?>
     </ul>
 
