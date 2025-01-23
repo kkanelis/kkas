@@ -4,6 +4,10 @@ require "Validator.php";
 
 $pageTitle = "Blogu veido luni";
 
+$sql = "SELECT * FROM posts WHERE id = :id";
+$params = ["id" => $_GET["id"]];
+$post = $db->query($sql, $params)->fetch();
+
 if(isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST'){
 
     $errors = [];
@@ -14,15 +18,17 @@ if(isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST'){
 
     if (empty($errors)) {
         $content = $_POST['content'];
-        $sql = "INSERT INTO posts (content) VALUES(:content)";
+        $id = $_POST["id"];
+        $sql = "UPDATE posts SET content = :content WHERE id = :id";
 
-        $params = ["content" => $content];
+        $params = ["id" => $id, "content" => $content];
         $db->query($sql, $params);
-        
-        header("Location: /"); 
+
+        header("Location: /show?id=" . $_POST['id']);
+
         exit();
     }
 
 }
 
-require "views/posts/create.view.php";
+require "views/posts/edit.view.php";
