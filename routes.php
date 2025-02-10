@@ -12,4 +12,7 @@ return [
     "/categories/show" => "controllers/categories/show.php",
     "/categories/edit" => "controllers/categories/edit.php",
     "/categories/delete" => "controllers/categories/delete.php",
+    "/comments/create" => "controllers/comments/create.php",
+    "/comments/delete" => "controllers/comments/delete.php",
+    "/comments/edit" => "controllers/comments/edit.php"
 ];

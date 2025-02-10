@@ -5,12 +5,12 @@
         <button>Meklē</button>
     </form>
 
-    <?php if (count($category) == 0) { ?>
+    <?php if (count($categories) == 0) { ?>
         <p> Kreizij nekas te nav </p>
     <?php } ?>
 
     <ul>
-        <?php foreach ($category as $categorys) { ?>
+        <?php foreach ($categories as $categorys) { ?>
             <li><a href="show?id=<?= $categorys["id"] ?>"> <?= htmlspecialchars($categorys['category_name']) ?></a> </li>
         <?php } ?>
     </ul>

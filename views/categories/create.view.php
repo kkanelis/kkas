@@ -2,7 +2,7 @@
 <?php require "views/components/navbar.php" ?>
 <h1>Izveido krutu categoriju</h1>
 
-<form method="post">
+<form method="POST">
     <label>Kaut kas:<input name="category_name" value="<?= $_POST['category_name'] ?? "" ?>"/>
     <button>Spied mani</button>
 </form>

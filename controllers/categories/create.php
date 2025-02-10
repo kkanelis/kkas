@@ -7,8 +7,8 @@ $pageTitle = "WOW IZVEIDO KATEGORIJU";
 if(isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST'){
 
     $errors = [];
-    if(!Validator::string($_POST['category_name'], min: 1, max: 50)){
-        $errors["category_name"] = "Saturam jābūt ievadītam, bet ne garākam par 50 rakstzīmēm";
+    if(!Validator::string($_POST['category_name'], min: 3, max: 25)){
+        $errors["category_name"] = "Saturam jābūt ievadītam, bet ne garākam par 25 rakstzīmēm";
     }
 
 

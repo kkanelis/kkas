@@ -8,7 +8,7 @@ if (isset($_GET["search_query"]) && $_GET["search_query"] != "") {
     $params = ["search_query" => $search_query];
 } 
 
-$category = $db->query($sql, $params)->fetchAll();
+$categories = $db->query($sql, $params)->fetchAll();
 
 $pageTitle = "Categories";
 require "views/categories/index.view.php";
