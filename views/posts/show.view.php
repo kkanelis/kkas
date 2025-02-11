@@ -17,12 +17,14 @@
 
 <h2>Komentēt</h2>
 
-<from method="POST" action="/comments/create">
+<form method="POST" action="/comments/create">
 
+    <input name="id" value ="<?= $post["id"]?>" type="hidden">
     <label>Autors:<input name="author"></label><br>
     <label>Komentārs:<input name="comment"></label><br>
-    <button>Pievienot</button>
-
+    
+    <button type="submit">KOMENTĒT</button>
 </form>
+
 
 <?php require "views/components/footer.php" ?>
