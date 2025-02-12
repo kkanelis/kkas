@@ -1,10 +1,9 @@
 <?php require "views/components/header.php" ?>
 <?php require "views/components/navbar.php" ?>
 <h1><?=($post["content"]) ?> </h1>
-<h2>Saturs: <?= $post["category_name"] ?? "Nav pievienots kategorija"?></h2><br>
+<h2>Saturs: <?= $post["category_name"] ?? "Nav kategorija"?></h2><br>
 
 <a href="/edit?id=<?= $post['id']?>">EDIT</a>
-
 
 <form method="POST" action="/delete">
 
@@ -14,6 +13,13 @@
 </form>
 
 <hr>
+
+<?php foreach ($comments as $comment) { ?>
+    <div class="comment-box">
+        <p class="comment-author"><strong><?= htmlspecialchars($comment['author']) ?></strong> <span class="comment-date"><?= htmlspecialchars($comment['date']) ?></span></p>
+        <p class="comment-text"><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+    </div>
+<?php } ?>
 
 <h2>Komentēt</h2>
 
@@ -26,5 +32,8 @@
     <button type="submit">KOMENTĒT</button>
 </form>
 
-
 <?php require "views/components/footer.php" ?>
+
+<?php if(isset($errors["content"])) { ?>
+    <p><?= $errors["content"] ?></p>
+<?php } ?>

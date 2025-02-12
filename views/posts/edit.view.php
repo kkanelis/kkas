@@ -2,21 +2,26 @@
 <?php require "views/components/navbar.php" ?>
 
 <form method="POST">
-    <input name="id" value = <?= $post["id"]?> type="hidden">
-    <input name="content" value="<?= $post['content'] ?? "" ?>">
+    <input name="id" value="<?= htmlspecialchars($post["id"]) ?>" type="hidden">
+    
+    <input name="content" value="<?= htmlspecialchars($post['content'] ?? "") ?>">
+
     <label for="category">Kategorija:</label>
-        <select name="id" id="category">
-            <?php foreach ($categories as $category): ?>
-                <option value="<?= htmlspecialchars($category['id']) ?>" <?= $catevalue["category_name"] === $category["category_name"] ? 'selected' : '' ?>>
-                    <?= htmlspecialchars($category["category_name"]) ?>
-                </option>
-            <?php endforeach; ?>
-        </select>
-    <button>REDIGE</button>
+    <select name="category_id" id="category">
+        <option value="" <?= ($catevalue["category_id"] === NULL) ? 'selected' : '' ?>>Nav Kategorijas</option>
+        <?php foreach ($categories as $category): ?>
+            <option value="<?= htmlspecialchars($category['id']) ?>" 
+                <?= ($catevalue["category_id"] == $category["id"]) ? 'selected' : '' ?>>
+                <?= htmlspecialchars($category["category_name"]) ?>
+            </option>
+        <?php endforeach; ?>
+    </select>
+
+    <button>REDIĢĒ</button>
 </form>
 
-<?php require "views/components/footer.php" ?>
-
 <?php if(isset($errors["content"])) { ?>
-    <p><?= $errors["content"] ?></p>
+    <p><?= htmlspecialchars($errors["content"]) ?></p>
 <?php } ?>
+
+<?php require "views/components/footer.php" ?>

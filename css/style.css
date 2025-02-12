@@ -48,3 +48,31 @@ header li a:hover {
     box-shadow: 0 4px 10px rgba(255, 117, 140, 0.3);
     transform: translateY(-2px);
 }
+
+.comment-box {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    margin-left: 10px;
+}
+
+.comment-author {
+    font-weight: bold;
+    color: #333;
+}
+
+.comment-date {
+    font-size: 0.9em;
+    color: #666;
+    margin-left: 10px;
+}
+
+.comment-text {
+    margin-top: 5px;
+    color: #444;
+    line-height: 1.4;
+}

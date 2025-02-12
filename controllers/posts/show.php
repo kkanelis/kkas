@@ -8,6 +8,13 @@ $sql = "SELECT posts.*, categories.category_name FROM posts LEFT JOIN categories
 $params = ["id" => $_GET["id"]];
 $post = $db->query($sql, $params)->fetch();
 
+$sql = "SELECT comments.* 
+        FROM comments 
+        JOIN posts ON posts.id = comments.post_id 
+        WHERE posts.id = :id";
+$params = ["id" => $_GET["id"]];
+$comments = $db->query($sql, $params)->fetchAll();
+
 
 if (!$post) {
     redirectIfNotFound();

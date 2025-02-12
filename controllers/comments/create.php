@@ -20,7 +20,7 @@ $months = [
     "December" => "decembris"
 ];
 
-$datetime = date("Y j F H:i:s");
+$datetime = date("Y") . ". gada " . date("j. F,") . " plkst. " . date("H.i");
 $datetime = str_replace(array_keys($months), array_values($months), $datetime);
 
 
